@@ -216,7 +216,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1747311071128</updated>
-      <workItem from="1747311072195" duration="6597000" />
+      <workItem from="1747311072195" duration="10523000" />
     </task>
     <servers />
   </component>
@@ -245,6 +245,6 @@
     </option>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/kursova2025$main.coverage" NAME="main Coverage Results" MODIFIED="1747317149892" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/student_list" />
+    <SUITE FILE_PATH="coverage/kursova2025$main.coverage" NAME="main Coverage Results" MODIFIED="1747321675727" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/student_list" />
   </component>
 </project>
