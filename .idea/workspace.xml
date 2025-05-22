@@ -5,15 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f1d2e0b9-ff82-4768-9f42-a8a88d35f342" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/student_list/db.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/student_list/ui_students.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/student_list/ui_teachers.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/a75ffd49-30a8-427c-818c-c64c0fc44cb2.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/a75ffd49-30a8-427c-818c-c64c0fc44cb2/storage_v2/_src_/schema/main.uQUzAA.meta" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/Financial_tracker/db.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Financial_tracker/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/student_list/humans.db" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/student_list/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/student_list/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/student_list/ui.py" beforeDir="false" afterPath="$PROJECT_DIR$/student_list/ui.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,6 +50,7 @@
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
     &quot;Python.courses.executor&quot;: &quot;Run&quot;,
+    &quot;Python.db.executor&quot;: &quot;Run&quot;,
     &quot;Python.main.executor&quot;: &quot;Run&quot;,
     &quot;Python.ui.executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
@@ -100,7 +97,9 @@
       <workItem from="1747332324150" duration="120000" />
       <workItem from="1747391320934" duration="568000" />
       <workItem from="1747477387008" duration="7828000" />
-      <workItem from="1747660744072" duration="7401000" />
+      <workItem from="1747660744072" duration="7649000" />
+      <workItem from="1747919793363" duration="9438000" />
+      <workItem from="1747933914693" duration="44000" />
     </task>
     <servers />
   </component>
@@ -129,7 +128,8 @@
     </option>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/kursova2025$main.coverage" NAME="main Coverage Results" MODIFIED="1747480520478" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/student_list" />
+    <SUITE FILE_PATH="coverage/kursova2025$db.coverage" NAME="db Coverage Results" MODIFIED="1747932616006" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Financial_tracker" />
+    <SUITE FILE_PATH="coverage/kursova2025$main.coverage" NAME="main Coverage Results" MODIFIED="1747933739749" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Financial_tracker" />
     <SUITE FILE_PATH="coverage/kursova2025$courses.coverage" NAME="courses Coverage Results" MODIFIED="1747478520272" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/student_list" />
     <SUITE FILE_PATH="coverage/kursova2025$ui.coverage" NAME="ui Coverage Results" MODIFIED="1747664685778" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/student_list" />
   </component>
