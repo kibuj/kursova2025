@@ -34,17 +34,50 @@ class Operation(User):
         else:
             return f"Баланс збільшився на :{self.balance - self.old_balance}"
 
+
+    @classmethod
+    def load_from_db(cls, user_id:int, conn):
+        cursor = conn.cursor()
+        cursor.execute(f"SELECT id, name, balance, changes FROM balance WHERE id={user_id}")
+        row = cursor.fetchone()
+
+        if row:
+            instance = cls(row[1], row[2])
+            instance.id = row[0]
+            instance.changes = list(map(int, row[3].split(','))) if row[3] else []
+            instance.old_balance = row[2] - sum(instance.changes)
+            return instance
+        else:
+            return None
+
     def save_to_db(self):
         cursor = conn.cursor()
-        cursor.execute('''
-            INSERT OR REPLACE INTO balance (id, name, balance, changes)
-            VALUES (?, ?, ?, ?)
-        ''', (
-            self.id,
-            self.name,
-            self.balance,
-            ','.join(map(str, self.changes)),
-        ))
+
+        cursor.execute("SELECT id FROM balance WHERE id = ?", (self.id,))
+        existing = cursor.fetchone()
+
+        if existing:
+            cursor.execute('''
+                UPDATE balance
+                SET name = ?, balance = ?, changes = ?
+                WHERE id = ?
+            ''', (
+                self.name,
+                self.balance,
+                ','.join(map(str, self.changes)),
+                self.id
+            ))
+        else:
+            cursor.execute('''
+                INSERT INTO balance (id, name, balance, changes)
+                VALUES (?, ?, ?, ?)
+            ''', (
+                self.id,
+                self.name,
+                self.balance,
+                ','.join(map(str, self.changes))
+            ))
+
         conn.commit()
 
 
@@ -59,5 +92,10 @@ def main():
     print(first.get_changes())
     print(first.info())
     first.save_to_db()
+    print(first.id)
+    second = Operation.load_from_db(0, conn)
+    second.add_change(10)
+    second.save_to_db()
+    print(second.info())
 
 main()
