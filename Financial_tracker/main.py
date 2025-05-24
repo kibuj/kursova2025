@@ -2,13 +2,11 @@
 from db import conn
 
 class User:
-    id_counter = 0
     def __init__(self, name:str, balance:int):
-        self.id = User.id_counter
+        self.id = None
         self.name = name
         self.balance = balance
         self.changes = []
-        User.id_counter += 1
 
     def get_changes(self):
         return self.changes
@@ -77,25 +75,25 @@ class Operation(User):
                 self.balance,
                 ','.join(map(str, self.changes))
             ))
-
+            self.id = cursor.lastrowid
         conn.commit()
 
 
-def main():
-    first = Operation('Bogdan', 12)
-    first.add_change(10)
-    print(first.get_amount())
-    first.add_change(20)
-    first.add_change(30)
-    first.add_change(40)
-    first.add_change(-50)
-    print(first.get_changes())
-    print(first.info())
-    first.save_to_db()
-    print(first.id)
-    second = Operation.load_from_db(0, conn)
-    second.add_change(10)
-    second.save_to_db()
-    print(second.info())
-
-main()
+#def main():
+#    first = Operation('Bogdan', 12)
+#    first.add_change(10)
+#    print(first.get_amount())
+#    first.add_change(20)
+#    first.add_change(30)
+#    first.add_change(40)
+#    first.add_change(-50)
+#    print(first.get_changes())
+#    print(first.info())
+#    first.save_to_db()
+#    print(first.id)
+#    second = Operation.load_from_db(0, conn)
+#    second.add_change(10)
+#    second.save_to_db()
+#    print(second.info())
+#
+#main()

@@ -5,7 +5,7 @@ cursor = conn.cursor()
 
 cursor.execute('''
     CREATE TABLE IF NOT EXISTS balance (
-        id INTEGER PRIMARY KEY,
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
         name TEXT NOT NULL,
         balance INTEGER NOT NULL,
         changes TEXT
