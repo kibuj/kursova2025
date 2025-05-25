@@ -5,11 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f1d2e0b9-ff82-4768-9f42-a8a88d35f342" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Financial_tracker/ui.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/c167c301-78ef-4e27-8610-8aeff1794da8.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/c167c301-78ef-4e27-8610-8aeff1794da8.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bank_account/db.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bank_account/ui.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/kursova2025.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/kursova2025.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Financial_tracker/finance.db" beforeDir="false" afterPath="$PROJECT_DIR$/Financial_tracker/finance.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Financial_tracker/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/Financial_tracker/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,6 +53,7 @@
     &quot;Python.courses.executor&quot;: &quot;Run&quot;,
     &quot;Python.db.executor&quot;: &quot;Run&quot;,
     &quot;Python.main.executor&quot;: &quot;Run&quot;,
+    &quot;Python.manage.executor&quot;: &quot;Run&quot;,
     &quot;Python.ui.executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
@@ -75,6 +77,36 @@
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\Progs\cursova2025\student_list" />
     </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="manage" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="kursova2025" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/simple_market/mysite" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/simple_market/mysite/manage.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.manage" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
@@ -100,7 +132,9 @@
       <workItem from="1747660744072" duration="7649000" />
       <workItem from="1747919793363" duration="9438000" />
       <workItem from="1747933914693" duration="496000" />
-      <workItem from="1748078760746" duration="2022000" />
+      <workItem from="1748078760746" duration="14458000" />
+      <workItem from="1748106239836" duration="4785000" />
+      <workItem from="1748164622785" duration="10694000" />
     </task>
     <servers />
   </component>
@@ -129,9 +163,10 @@
     </option>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/kursova2025$db.coverage" NAME="db Coverage Results" MODIFIED="1747932616006" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Financial_tracker" />
-    <SUITE FILE_PATH="coverage/kursova2025$main.coverage" NAME="main Coverage Results" MODIFIED="1748080766458" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Financial_tracker" />
+    <SUITE FILE_PATH="coverage/kursova2025$db.coverage" NAME="db Coverage Results" MODIFIED="1748173999986" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/bank_account" />
+    <SUITE FILE_PATH="coverage/kursova2025$main.coverage" NAME="main Coverage Results" MODIFIED="1748174072743" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/bank_account" />
     <SUITE FILE_PATH="coverage/kursova2025$courses.coverage" NAME="courses Coverage Results" MODIFIED="1747478520272" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/student_list" />
-    <SUITE FILE_PATH="coverage/kursova2025$ui.coverage" NAME="ui Coverage Results" MODIFIED="1748079217495" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Financial_tracker" />
+    <SUITE FILE_PATH="coverage/kursova2025$ui.coverage" NAME="ui Coverage Results" MODIFIED="1748177715203" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/bank_account" />
+    <SUITE FILE_PATH="coverage/kursova2025$manage.coverage" NAME="manage Coverage Results" MODIFIED="1748169915093" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/simple_market/mysite" />
   </component>
 </project>
