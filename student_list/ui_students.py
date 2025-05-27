@@ -1,32 +1,27 @@
 import tkinter as tk
-from tkinter import messagebox
+from tkinter import messagebox, Scrollbar
 from db import conn, cursor
 from human import Student, humans
 
-
 def setup_student_ui(frame_students):
-    global entry_s_name, entry_s_surname, entry_s_group, output_students
-    global entry_update_id, entry_new_course, entry_new_grade, entry_new_group
+    tk.Label(frame_students, text="🎓 Керування студентами", font=("Helvetica", 14, "bold")).pack(pady=5)
 
-    tk.Label(frame_students, text="Ім'я").pack()
-    entry_s_name = tk.Entry(frame_students)
-    entry_s_name.pack()
+    add_frame = tk.LabelFrame(frame_students, text="➕ Додати студента", padx=10, pady=10, bg="#f0f8ff")
+    add_frame.pack(fill="x", padx=5, pady=5)
 
-    tk.Label(frame_students, text="Прізвище").pack()
-    entry_s_surname = tk.Entry(frame_students)
-    entry_s_surname.pack()
+    global entry_s_name, entry_s_surname, entry_s_group
+    entry_s_name = tk.Entry(add_frame, width=40)
+    entry_s_surname = tk.Entry(add_frame, width=40)
+    entry_s_group = tk.Entry(add_frame, width=40)
 
-    tk.Label(frame_students, text="Група").pack()
-    entry_s_group = tk.Entry(frame_students)
-    entry_s_group.pack()
-
-    output_students = tk.Text(frame_students, height=10, width=60)
-    output_students.pack(pady=10)
+    for label, entry in [("Ім'я", entry_s_name), ("Прізвище", entry_s_surname), ("Група", entry_s_group)]:
+        tk.Label(add_frame, text=label, bg="#f0f8ff").pack(anchor="w")
+        entry.pack()
 
     def add_student():
-        name = entry_s_name.get()
-        surname = entry_s_surname.get()
-        group = entry_s_group.get()
+        name = entry_s_name.get().strip()
+        surname = entry_s_surname.get().strip()
+        group = entry_s_group.get().strip()
 
         if not name or not surname or not group:
             messagebox.showerror("Помилка", "Заповніть усі поля для студента.")
@@ -36,49 +31,56 @@ def setup_student_ui(frame_students):
         humans[student.id] = student.to_dict()
         student.save_to_db(conn)
 
-        output_students.insert(tk.END, student.show_info() + "\n\n")
+        output_students.insert(tk.END, f"✅ Додано:\n{student.show_info()}\n\n")
 
         entry_s_name.delete(0, tk.END)
         entry_s_surname.delete(0, tk.END)
         entry_s_group.delete(0, tk.END)
+
+    tk.Button(add_frame, text="Додати студента", command=add_student, bg="#d0f0c0").pack(pady=5)
+
+    output_frame = tk.LabelFrame(frame_students, text="📋 Інформація", padx=10, pady=10)
+    output_frame.pack(fill="both", expand=True, padx=5, pady=5)
+
+    global output_students
+    scroll = Scrollbar(output_frame)
+    scroll.pack(side="right", fill="y")
+
+    output_students = tk.Text(output_frame, height=12, width=70, yscrollcommand=scroll.set)
+    output_students.pack(side="left", fill="both", expand=True)
+    scroll.config(command=output_students.yview)
 
     def show_all_students():
         cursor.execute("SELECT id, name, surname, group_name, courses, grades, average FROM students")
         rows = cursor.fetchall()
         output_students.delete("1.0", tk.END)
         if not rows:
-            output_students.insert(tk.END, "Немає записів про студентів.\n")
+            output_students.insert(tk.END, "❌ Немає записів про студентів.\n")
         else:
             for row in rows:
                 sid, name, surname, group, courses, grades, average = row
-                info = (f"ID: {sid}\n"
-                        f"Студент: {surname} {name}\n"
-                        f"Група: {group}\n"
-                        f"Курси: {courses}\n"
-                        f"Оцінки: {grades}\n"
-                        f"Середня оцінка: {average:.2f}\n\n")
+                info = (f"🆔 ID: {sid}\n👤 {surname} {name}\n🏫 Група: {group}\n📘 Курси: {courses}\n"
+                        f"📊 Оцінки: {grades}\n📈 Середня: {average:.2f}\n\n")
                 output_students.insert(tk.END, info)
 
-    tk.Button(frame_students, text="Додати студента", command=add_student).pack(pady=5)
-    tk.Button(frame_students, text="Показати студентів", command=show_all_students).pack(pady=5)
+    tk.Button(frame_students, text="📂 Показати всіх студентів", command=show_all_students, bg="#e6e6fa").pack(pady=5)
 
-    # === ОНОВЛЕННЯ СТУДЕНТА ===
+    update_frame = tk.LabelFrame(frame_students, text="🛠 Оновити / Видалити", padx=10, pady=10, bg="#f9f9f9")
+    update_frame.pack(fill="x", padx=5, pady=5)
 
-    tk.Label(frame_students, text="Оновити студента за ID").pack()
-    entry_update_id = tk.Entry(frame_students)
-    entry_update_id.pack()
+    global entry_update_id, entry_new_course, entry_new_grade, entry_new_group
+    entry_update_id = tk.Entry(update_frame, width=40)
+    entry_new_course = tk.Entry(update_frame, width=40)
+    entry_new_grade = tk.Entry(update_frame, width=40)
+    entry_new_group = tk.Entry(update_frame, width=40)
 
-    tk.Label(frame_students, text="Додати курс (один)").pack()
-    entry_new_course = tk.Entry(frame_students)
-    entry_new_course.pack()
-
-    tk.Label(frame_students, text="Додати оцінку (одна)").pack()
-    entry_new_grade = tk.Entry(frame_students)
-    entry_new_grade.pack()
-
-    tk.Label(frame_students, text="Змінити групу").pack()
-    entry_new_group = tk.Entry(frame_students)
-    entry_new_group.pack()
+    for label, entry in [
+        ("ID студента", entry_update_id),
+        ("Новий курс", entry_new_course),
+        ("Нова оцінка", entry_new_grade)
+    ]:
+        tk.Label(update_frame, text=label, bg="#f9f9f9").pack(anchor="w")
+        entry.pack()
 
     def update_student():
         try:
@@ -119,14 +121,12 @@ def setup_student_ui(frame_students):
         humans[student.id] = student.to_dict()
         student.save_to_db(conn)
 
-        output_students.insert(tk.END, f"Оновлено:\n{student.show_info()}\n\n")
+        output_students.insert(tk.END, f"✅ Оновлено:\n{student.show_info()}\n\n")
 
         entry_update_id.delete(0, tk.END)
         entry_new_course.delete(0, tk.END)
         entry_new_grade.delete(0, tk.END)
         entry_new_group.delete(0, tk.END)
-
-    tk.Button(frame_students, text="Оновити дані студента", command=update_student).pack(pady=5)
 
     def delete_student():
         try:
@@ -142,11 +142,12 @@ def setup_student_ui(frame_students):
 
         cursor.execute("DELETE FROM students WHERE id = ?", (sid,))
         conn.commit()
-        output_students.insert(tk.END, f"Студент з ID {sid} видалений.\n")
+        output_students.insert(tk.END, f"🗑 Студент з ID {sid} видалений.\n")
 
         entry_update_id.delete(0, tk.END)
         entry_new_course.delete(0, tk.END)
         entry_new_grade.delete(0, tk.END)
         entry_new_group.delete(0, tk.END)
 
-    tk.Button(frame_students, text="Видалити студента", command=delete_student).pack(pady=5)
+    tk.Button(update_frame, text="Оновити дані", command=update_student, bg="#add8e6").pack(pady=2)
+    tk.Button(update_frame, text="Видалити студента", command=delete_student, bg="#ff9999").pack(pady=2)
